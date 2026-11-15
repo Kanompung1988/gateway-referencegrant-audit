@@ -32,6 +32,17 @@ jobs:
           code=$?
           test "$code" -eq 1 || exit 1
           python -c 'import json; assert json.load(open("/tmp/review.json"))["count"] >= 2'
+      - name: Verify original brand logo and SVG hero
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          p=Path("assets/areazero-logo.svg")
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=="89b459e6a4e61748d2d56d54da2cd17ff2b55deafbbc90e45e43d4c319462d16"
+          ET.parse(p)
+          ET.parse("assets/hero.svg")
+          PY
       - name: Agent Skills frontmatter smoke
         run: |
           python - <<'PY'

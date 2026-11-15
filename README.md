@@ -1,4 +1,5 @@
 <p align="center"><img src="assets/areazero-logo.svg" width="270" alt="Original Area Zero brand mark"></p>
+<p align="center"><img src="assets/hero.svg" width="100%" alt="Original Gateway API trust boundary hero illustration"></p>
 
 # Gateway API ReferenceGrant Audit
 
